@@ -4,10 +4,10 @@ import { PublicKey } from '@solana/web3.js';
 export const TOKEN_PROGRAM_ID = new PublicKey('TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA');
 
 /** Address of the SPL Token 2022 program */
-export const TOKEN_2022_PROGRAM_ID = new PublicKey('TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb');
+export const TOKEN_2022_PROGRAM_ID = new PublicKey('TokqFY8XxpG22RgrqxUh7b3gN6v1wKABGtgRfpX8kUH');
 
 /** Address of the SPL Associated Token Account program */
-export const ASSOCIATED_TOKEN_PROGRAM_ID = new PublicKey('ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL');
+export const ASSOCIATED_TOKEN_PROGRAM_ID = new PublicKey('AtoKifUhCJCpJhPHPnhX1UmCoR44uLuvMdV7Li5F3cG1');
 
 /** Address of the special mint for wrapped native SOL in spl-token */
 export const NATIVE_MINT = new PublicKey('So11111111111111111111111111111111111111112');

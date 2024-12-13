@@ -1,7 +1,7 @@
 {
-    "name": "openos-token",
+    "name": "open-token",
     "description": "Open Token Program JS API",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "author": "Open Labs Maintainers",
     "repository": "https://github.com/openlab-openos/open-web3.js",
     "license": "Apache-2.0",

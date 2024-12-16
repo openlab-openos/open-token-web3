@@ -1,10 +1,10 @@
-# `open-token`
+# `open-token-web3`
 
 A TypeScript library for interacting with the Open Token and Token-2022 programs.
 
 ## Links
 
-- [TypeScript Docs](https://github.com/openlab-openos/open-web3.js)
+- [TypeScript Docs](https://github.com/openlab-openos/open-token-web3)
 - [FAQs (Frequently Asked Questions)](#faqs)
 - [Install](#install)
 - [Build from Source](#build-from-source)
@@ -14,11 +14,11 @@ A TypeScript library for interacting with the Open Token and Token-2022 programs
 ## Install
 
 ```shell
-npm install --save open-token
+npm install --save open-token-web3
 ```
 _OR_
 ```shell
-yarn add @solana/spl-token
+yarn add open-token-web3
 ```
 
 ## Build from Source
@@ -30,7 +30,7 @@ yarn add @solana/spl-token
 
 1. Clone the project:
 ```shell
-git clone https://github.com/openlab-openos/open-web3.js
+git clone https://github.com/openlab-openos/open-token-web3
 ```
 ```
 

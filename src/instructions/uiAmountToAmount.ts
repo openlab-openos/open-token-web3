@@ -1,7 +1,7 @@
 import { blob, struct, u8 } from '@solana/buffer-layout';
 import type { AccountMeta, PublicKey } from '@solana/web3.js';
 import { TransactionInstruction } from '@solana/web3.js';
-import { TOKEN_PROGRAM_ID } from '../constants.js';
+import { TOKEN_2022_PROGRAM_ID } from '../constants.js';
 import {
     TokenInvalidInstructionDataError,
     TokenInvalidInstructionKeysError,
@@ -30,7 +30,7 @@ export interface UiAmountToAmountInstructionData {
 export function createUiAmountToAmountInstruction(
     mint: PublicKey,
     amount: string,
-    programId = TOKEN_PROGRAM_ID
+    programId = TOKEN_2022_PROGRAM_ID
 ): TransactionInstruction {
     const keys = [{ pubkey: mint, isSigner: false, isWritable: false }];
     const buf = Buffer.from(amount, 'utf8');
@@ -73,7 +73,7 @@ export interface DecodedUiAmountToAmountInstruction {
  */
 export function decodeUiAmountToAmountInstruction(
     instruction: TransactionInstruction,
-    programId = TOKEN_PROGRAM_ID
+    programId = TOKEN_2022_PROGRAM_ID
 ): DecodedUiAmountToAmountInstruction {
     if (!instruction.programId.equals(programId)) throw new TokenInvalidInstructionProgramError();
     const uiAmountToAmountInstructionData = struct<UiAmountToAmountInstructionData>([

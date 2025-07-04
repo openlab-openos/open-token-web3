@@ -2,7 +2,7 @@ import { struct, u8 } from '@solana/buffer-layout';
 import { u64 } from '@solana/buffer-layout-utils';
 import type { AccountMeta, PublicKey, Signer } from '@solana/web3.js';
 import { TransactionInstruction } from '@solana/web3.js';
-import { TOKEN_PROGRAM_ID } from '../constants.js';
+import { TOKEN_2022_PROGRAM_ID } from '../constants.js';
 import {
     TokenInvalidInstructionDataError,
     TokenInvalidInstructionKeysError,
@@ -39,7 +39,7 @@ export function createMintToInstruction(
     authority: PublicKey,
     amount: number | bigint,
     multiSigners: (Signer | PublicKey)[] = [],
-    programId = TOKEN_PROGRAM_ID
+    programId = TOKEN_2022_PROGRAM_ID
 ): TransactionInstruction {
     const keys = addSigners(
         [
@@ -87,7 +87,7 @@ export interface DecodedMintToInstruction {
  */
 export function decodeMintToInstruction(
     instruction: TransactionInstruction,
-    programId = TOKEN_PROGRAM_ID
+    programId = TOKEN_2022_PROGRAM_ID
 ): DecodedMintToInstruction {
     if (!instruction.programId.equals(programId)) throw new TokenInvalidInstructionProgramError();
     if (instruction.data.length !== mintToInstructionData.span) throw new TokenInvalidInstructionDataError();

@@ -2,7 +2,7 @@ import { struct, u8 } from '@solana/buffer-layout';
 import { publicKey } from '@solana/buffer-layout-utils';
 import type { AccountMeta, PublicKey } from '@solana/web3.js';
 import { TransactionInstruction } from '@solana/web3.js';
-import { TOKEN_PROGRAM_ID } from '../constants.js';
+import { TOKEN_2022_PROGRAM_ID } from '../constants.js';
 import {
     TokenInvalidInstructionDataError,
     TokenInvalidInstructionKeysError,
@@ -35,7 +35,7 @@ export function createInitializeAccount3Instruction(
     account: PublicKey,
     mint: PublicKey,
     owner: PublicKey,
-    programId = TOKEN_PROGRAM_ID
+    programId = TOKEN_2022_PROGRAM_ID
 ): TransactionInstruction {
     const keys = [
         { pubkey: account, isSigner: false, isWritable: true },
@@ -69,7 +69,7 @@ export interface DecodedInitializeAccount3Instruction {
  */
 export function decodeInitializeAccount3Instruction(
     instruction: TransactionInstruction,
-    programId = TOKEN_PROGRAM_ID
+    programId = TOKEN_2022_PROGRAM_ID
 ): DecodedInitializeAccount3Instruction {
     if (!instruction.programId.equals(programId)) throw new TokenInvalidInstructionProgramError();
     if (instruction.data.length !== initializeAccount3InstructionData.span)

@@ -1,7 +1,7 @@
 import { struct, u8 } from '@solana/buffer-layout';
 import type { AccountMeta, Signer } from '@solana/web3.js';
 import { PublicKey, SYSVAR_RENT_PUBKEY, TransactionInstruction } from '@solana/web3.js';
-import { TOKEN_PROGRAM_ID } from '../constants.js';
+import { TOKEN_2022_PROGRAM_ID } from '../constants.js';
 import {
     TokenInvalidInstructionDataError,
     TokenInvalidInstructionKeysError,
@@ -37,7 +37,7 @@ export function createInitializeMultisigInstruction(
     account: PublicKey,
     signers: (Signer | PublicKey)[],
     m: number,
-    programId = TOKEN_PROGRAM_ID
+    programId = TOKEN_2022_PROGRAM_ID
 ): TransactionInstruction {
     const keys = [
         { pubkey: account, isSigner: false, isWritable: true },
@@ -87,7 +87,7 @@ export interface DecodedInitializeMultisigInstruction {
  */
 export function decodeInitializeMultisigInstruction(
     instruction: TransactionInstruction,
-    programId = TOKEN_PROGRAM_ID
+    programId = TOKEN_2022_PROGRAM_ID
 ): DecodedInitializeMultisigInstruction {
     if (!instruction.programId.equals(programId)) throw new TokenInvalidInstructionProgramError();
     if (instruction.data.length !== initializeMultisigInstructionData.span)

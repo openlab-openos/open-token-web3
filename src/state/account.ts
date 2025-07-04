@@ -1,7 +1,7 @@
 import { struct, u32, u8 } from '@solana/buffer-layout';
 import { publicKey, u64 } from '@solana/buffer-layout-utils';
 import type { AccountInfo, Commitment, Connection, PublicKey } from '@solana/web3.js';
-import { TOKEN_PROGRAM_ID } from '../constants.js';
+import { TOKEN_2022_PROGRAM_ID } from '../constants.js';
 import {
     TokenAccountNotFoundError,
     TokenInvalidAccountError,
@@ -97,7 +97,7 @@ export async function getAccount(
     connection: Connection,
     address: PublicKey,
     commitment?: Commitment,
-    programId = TOKEN_PROGRAM_ID
+    programId = TOKEN_2022_PROGRAM_ID
 ): Promise<Account> {
     const info = await connection.getAccountInfo(address, commitment);
     return unpackAccount(address, info, programId);
@@ -117,7 +117,7 @@ export async function getMultipleAccounts(
     connection: Connection,
     addresses: PublicKey[],
     commitment?: Commitment,
-    programId = TOKEN_PROGRAM_ID
+    programId = TOKEN_2022_PROGRAM_ID
 ): Promise<Account[]> {
     const infos = await connection.getMultipleAccountsInfo(addresses, commitment);
     return addresses.map((address, i) => unpackAccount(address, infos[i], programId));
@@ -165,7 +165,7 @@ export async function getMinimumBalanceForRentExemptAccountWithExtensions(
 export function unpackAccount(
     address: PublicKey,
     info: AccountInfo<Buffer> | null,
-    programId = TOKEN_PROGRAM_ID
+    programId = TOKEN_2022_PROGRAM_ID
 ): Account {
     if (!info) throw new TokenAccountNotFoundError();
     if (!info.owner.equals(programId)) throw new TokenInvalidAccountOwnerError();

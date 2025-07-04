@@ -1,6 +1,6 @@
 import { u8 } from '@solana/buffer-layout';
 import type { TransactionInstruction } from '@solana/web3.js';
-import { TOKEN_PROGRAM_ID } from '../constants.js';
+import { TOKEN_2022_PROGRAM_ID } from '../constants.js';
 import { TokenInvalidInstructionDataError, TokenInvalidInstructionTypeError } from '../errors.js';
 import type { DecodedAmountToUiAmountInstruction } from './amountToUiAmount.js';
 import { decodeAmountToUiAmountInstruction } from './amountToUiAmount.js';
@@ -79,7 +79,7 @@ export type DecodedInstruction =
 /** TODO: docs */
 export function decodeInstruction(
     instruction: TransactionInstruction,
-    programId = TOKEN_PROGRAM_ID
+    programId = TOKEN_2022_PROGRAM_ID
 ): DecodedInstruction {
     if (!instruction.data.length) throw new TokenInvalidInstructionDataError();
 

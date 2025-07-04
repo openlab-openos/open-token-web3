@@ -1,7 +1,7 @@
 import { struct, u8 } from '@solana/buffer-layout';
 import { bool, publicKey } from '@solana/buffer-layout-utils';
 import type { AccountInfo, Commitment, Connection, PublicKey } from '@solana/web3.js';
-import { TOKEN_PROGRAM_ID } from '../constants.js';
+import { TOKEN_2022_PROGRAM_ID } from '../constants.js';
 import { TokenAccountNotFoundError, TokenInvalidAccountOwnerError, TokenInvalidAccountSizeError } from '../errors.js';
 
 /** Information about a multisig */
@@ -66,7 +66,7 @@ export async function getMultisig(
     connection: Connection,
     address: PublicKey,
     commitment?: Commitment,
-    programId = TOKEN_PROGRAM_ID
+    programId = TOKEN_2022_PROGRAM_ID
 ): Promise<Multisig> {
     const info = await connection.getAccountInfo(address, commitment);
     return unpackMultisig(address, info, programId);
@@ -84,7 +84,7 @@ export async function getMultisig(
 export function unpackMultisig(
     address: PublicKey,
     info: AccountInfo<Buffer> | null,
-    programId = TOKEN_PROGRAM_ID
+    programId = TOKEN_2022_PROGRAM_ID
 ): Multisig {
     if (!info) throw new TokenAccountNotFoundError();
     if (!info.owner.equals(programId)) throw new TokenInvalidAccountOwnerError();

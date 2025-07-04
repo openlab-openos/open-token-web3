@@ -7,8 +7,8 @@ export const TOKEN_PROGRAM_ID = new PublicKey('TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9
 export const TOKEN_2022_PROGRAM_ID = new PublicKey('Token9ADbPtdFC3PjxaohBLGw2pgZwofdcbj6Lyaw6c');
 
 /** Address of the SPL Associated Token Account program */
-export const ASSOCIATED_TOKEN_PROGRAM_ID = new PublicKey('ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL');
-export const ASSOCIATED_TOKEN_2022_PROGRAM_ID = new PublicKey('AtokenhZ6AE34VMYRv1AqSv8q8QZJxxEaY1zKiXKwSWT');
+//export const ASSOCIATED_TOKEN_PROGRAM_ID = new PublicKey('ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL');
+export const ASSOCIATED_TOKEN_PROGRAM_ID = new PublicKey('AtokenhZ6AE34VMYRv1AqSv8q8QZJxxEaY1zKiXKwSWT');
 
 /** Address of the special mint for wrapped native SOL in spl-token */
 export const NATIVE_MINT = new PublicKey('So11111111111111111111111111111111111111112');

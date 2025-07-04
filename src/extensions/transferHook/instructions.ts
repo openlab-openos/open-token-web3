@@ -1,7 +1,7 @@
 import { struct, u8 } from '@solana/buffer-layout';
 import type { AccountMeta, Commitment, Connection, PublicKey, Signer } from '@solana/web3.js';
 import { TransactionInstruction } from '@solana/web3.js';
-import { programSupportsExtensions, TOKEN_2022_PROGRAM_ID, TOKEN_PROGRAM_ID } from '../../constants.js';
+import { programSupportsExtensions, TOKEN_2022_PROGRAM_ID } from '../../constants.js';
 import { TokenUnsupportedInstructionError } from '../../errors.js';
 import { addSigners } from '../../instructions/internal.js';
 import { TokenInstruction } from '../../instructions/types.js';
@@ -268,7 +268,7 @@ export async function createTransferCheckedWithTransferHookInstruction(
     decimals: number,
     multiSigners: (Signer | PublicKey)[] = [],
     commitment?: Commitment,
-    programId = TOKEN_PROGRAM_ID
+    programId = TOKEN_2022_PROGRAM_ID
 ) {
     const instruction = createTransferCheckedInstruction(
         source,
@@ -329,7 +329,7 @@ export async function createTransferCheckedWithFeeAndTransferHookInstruction(
     fee: bigint,
     multiSigners: (Signer | PublicKey)[] = [],
     commitment?: Commitment,
-    programId = TOKEN_PROGRAM_ID
+    programId = TOKEN_2022_PROGRAM_ID
 ) {
     const instruction = createTransferCheckedWithFeeInstruction(
         source,

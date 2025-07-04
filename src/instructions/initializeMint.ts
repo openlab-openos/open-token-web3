@@ -2,7 +2,7 @@ import { struct, u8 } from '@solana/buffer-layout';
 import { publicKey } from '@solana/buffer-layout-utils';
 import type { AccountMeta, PublicKey } from '@solana/web3.js';
 import { SYSVAR_RENT_PUBKEY, TransactionInstruction } from '@solana/web3.js';
-import { TOKEN_PROGRAM_ID } from '../constants.js';
+import { TOKEN_2022_PROGRAM_ID } from '../constants.js';
 import {
     TokenInvalidInstructionDataError,
     TokenInvalidInstructionKeysError,
@@ -44,7 +44,7 @@ export function createInitializeMintInstruction(
     decimals: number,
     mintAuthority: PublicKey,
     freezeAuthority: PublicKey | null,
-    programId = TOKEN_PROGRAM_ID
+    programId = TOKEN_2022_PROGRAM_ID
 ): TransactionInstruction {
     const keys = [
         { pubkey: mint, isSigner: false, isWritable: true },
@@ -90,7 +90,7 @@ export interface DecodedInitializeMintInstruction {
  */
 export function decodeInitializeMintInstruction(
     instruction: TransactionInstruction,
-    programId = TOKEN_PROGRAM_ID
+    programId = TOKEN_2022_PROGRAM_ID
 ): DecodedInitializeMintInstruction {
     if (!instruction.programId.equals(programId)) throw new TokenInvalidInstructionProgramError();
     if (instruction.data.length !== initializeMintInstructionData.span) throw new TokenInvalidInstructionDataError();

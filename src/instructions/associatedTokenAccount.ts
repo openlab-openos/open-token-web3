@@ -1,6 +1,6 @@
 import type { PublicKey } from '@solana/web3.js';
 import { SystemProgram, TransactionInstruction } from '@solana/web3.js';
-import { ASSOCIATED_TOKEN_PROGRAM_ID, TOKEN_PROGRAM_ID } from '../constants.js';
+import { ASSOCIATED_TOKEN_PROGRAM_ID, TOKEN_2022_PROGRAM_ID } from '../constants.js';
 
 /**
  * Construct a CreateAssociatedTokenAccount instruction
@@ -19,7 +19,7 @@ export function createAssociatedTokenAccountInstruction(
     associatedToken: PublicKey,
     owner: PublicKey,
     mint: PublicKey,
-    programId = TOKEN_PROGRAM_ID,
+    programId = TOKEN_2022_PROGRAM_ID,
     associatedTokenProgramId = ASSOCIATED_TOKEN_PROGRAM_ID
 ): TransactionInstruction {
     return buildAssociatedTokenAccountInstruction(
@@ -50,7 +50,7 @@ export function createAssociatedTokenAccountIdempotentInstruction(
     associatedToken: PublicKey,
     owner: PublicKey,
     mint: PublicKey,
-    programId = TOKEN_PROGRAM_ID,
+    programId = TOKEN_2022_PROGRAM_ID,
     associatedTokenProgramId = ASSOCIATED_TOKEN_PROGRAM_ID
 ): TransactionInstruction {
     return buildAssociatedTokenAccountInstruction(
@@ -70,7 +70,7 @@ function buildAssociatedTokenAccountInstruction(
     owner: PublicKey,
     mint: PublicKey,
     instructionData: Buffer,
-    programId = TOKEN_PROGRAM_ID,
+    programId = TOKEN_2022_PROGRAM_ID,
     associatedTokenProgramId = ASSOCIATED_TOKEN_PROGRAM_ID
 ): TransactionInstruction {
     const keys = [
@@ -110,7 +110,7 @@ export function createRecoverNestedInstruction(
     ownerAssociatedToken: PublicKey,
     ownerMint: PublicKey,
     owner: PublicKey,
-    programId = TOKEN_PROGRAM_ID,
+    programId = TOKEN_2022_PROGRAM_ID,
     associatedTokenProgramId = ASSOCIATED_TOKEN_PROGRAM_ID
 ): TransactionInstruction {
     const keys = [

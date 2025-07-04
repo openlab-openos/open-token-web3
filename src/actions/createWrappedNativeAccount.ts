@@ -1,6 +1,6 @@
 import type { ConfirmOptions, Connection, Keypair, PublicKey, Signer } from '@solana/web3.js';
 import { sendAndConfirmTransaction, SystemProgram, Transaction } from '@solana/web3.js';
-import { ASSOCIATED_TOKEN_PROGRAM_ID, NATIVE_MINT, TOKEN_PROGRAM_ID } from '../constants.js';
+import { ASSOCIATED_TOKEN_PROGRAM_ID, NATIVE_MINT_2022, TOKEN_2022_PROGRAM_ID } from '../constants.js';
 import { createAssociatedTokenAccountInstruction } from '../instructions/associatedTokenAccount.js';
 import { createInitializeAccountInstruction } from '../instructions/initializeAccount.js';
 import { createSyncNativeInstruction } from '../instructions/syncNative.js';
@@ -28,8 +28,8 @@ export async function createWrappedNativeAccount(
     amount: number,
     keypair?: Keypair,
     confirmOptions?: ConfirmOptions,
-    programId = TOKEN_PROGRAM_ID,
-    nativeMint = NATIVE_MINT
+    programId = TOKEN_2022_PROGRAM_ID,
+    nativeMint = NATIVE_MINT_2022
 ): Promise<PublicKey> {
     // If the amount provided is explicitly 0 or NaN, just create the account without funding it
     if (!amount) return await createAccount(connection, payer, nativeMint, owner, keypair, confirmOptions, programId);

@@ -5,7 +5,6 @@ export declare const TOKEN_PROGRAM_ID: PublicKey;
 export declare const TOKEN_2022_PROGRAM_ID: PublicKey;
 /** Address of the SPL Associated Token Account program */
 export declare const ASSOCIATED_TOKEN_PROGRAM_ID: PublicKey;
-export declare const ASSOCIATED_TOKEN_2022_PROGRAM_ID: PublicKey;
 /** Address of the special mint for wrapped native SOL in spl-token */
 export declare const NATIVE_MINT: PublicKey;
 /** Address of the special mint for wrapped native SOL in spl-token-2022 */
